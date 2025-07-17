@@ -135,11 +135,12 @@ export const createApiClient = (supabase: SupabaseClient) => {
   };
 
   const addComment = async (payload: AddCommentPayload): Promise<Comment> => {
+    const { data: { user } } = await supabase.auth.getUser();
     const query = supabase
       .from('sce_comments')
       .insert({
         ...payload,
-        user_id: supabase.auth.user()?.id,
+        user_id: user?.id,
       })
       .single();
 
@@ -212,11 +213,12 @@ export const createApiClient = (supabase: SupabaseClient) => {
   const addCommentReaction = async (
     payload: AddCommentReactionPayload
   ): Promise<CommentReaction> => {
+    const { data: { user } } = await supabase.auth.getUser();
     const query = supabase
       .from('sce_comment_reactions')
       .insert({
         ...payload,
-        user_id: supabase.auth.user()?.id,
+        user_id: user?.id,
       })
       .single();
 
@@ -229,10 +231,11 @@ export const createApiClient = (supabase: SupabaseClient) => {
     reaction_type,
     comment_id,
   }: RemoveCommentReactionPayload): Promise<CommentReaction> => {
+    const { data: { user } } = await supabase.auth.getUser();
     const query = supabase
       .from('sce_comment_reactions')
       .delete({ returning: 'representation' })
-      .match({ reaction_type, comment_id, user_id: supabase.auth.user()?.id })
+      .match({ reaction_type, comment_id, user_id: user?.id })
       .single();
 
     const response = await query;

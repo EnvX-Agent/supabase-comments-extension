@@ -1,4 +1,4 @@
-import { Auth } from '@supabase/ui';
+import { Auth } from '@supabase/auth-ui-react';
 import { useCommentsContext } from '../components/CommentsProvider';
 
 // run callback if authenticated
