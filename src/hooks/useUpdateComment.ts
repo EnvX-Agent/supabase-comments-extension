@@ -20,6 +20,8 @@ const useUpdateComment = () => {
     },
     {
       onSuccess: (data) => {
+        // console.log(data)
+        if (!data) return;
         queryClient.invalidateQueries(['comments', data.id]);
       },
     }

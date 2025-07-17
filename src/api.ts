@@ -142,6 +142,7 @@ export const createApiClient = (supabase: SupabaseClient) => {
         ...payload,
         user_id: user?.id,
       })
+      .select()
       .single();
 
     const response = await query;
@@ -157,6 +158,7 @@ export const createApiClient = (supabase: SupabaseClient) => {
       .from('sce_comments')
       .update(payload)
       .match({ id })
+      .select()
       .single();
 
     const response = await query;
@@ -165,7 +167,7 @@ export const createApiClient = (supabase: SupabaseClient) => {
   };
 
   const deleteComment = async (id: string): Promise<Comment> => {
-    const query = supabase.from('sce_comments').delete().match({ id }).single();
+    const query = supabase.from('sce_comments').delete().match({ id }).select().single();
 
     const response = await query;
     assertResponseOk(response);
@@ -220,6 +222,7 @@ export const createApiClient = (supabase: SupabaseClient) => {
         ...payload,
         user_id: user?.id,
       })
+      .select()
       .single();
 
     const response = await query;
@@ -236,6 +239,7 @@ export const createApiClient = (supabase: SupabaseClient) => {
       .from('sce_comment_reactions')
       .delete({ returning: 'representation' })
       .match({ reaction_type, comment_id, user_id: user?.id })
+      .select()
       .single();
 
     const response = await query;

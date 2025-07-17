@@ -15,6 +15,8 @@ const useDeleteComment = () => {
     },
     {
       onSuccess: (data) => {
+        // console.log(data)
+        if (!data) return;
         queryClient.invalidateQueries([
           'comments',
           { topic: data.topic, parentId: data.parent_id },
