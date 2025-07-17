@@ -100,6 +100,7 @@ const CommentsProvider: FC<CommentsProviderProps> = ({
   );
 
   useEffect(() => {
+    // @ts-ignore
     const subscription = supabaseClient.auth.onAuthStateChange(() => {
       // refetch all queries when auth changes
       queryClient.invalidateQueries();

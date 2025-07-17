@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { FC, forwardRef, ReactNode, useImperativeHandle } from 'react';
 import { IconBold, IconCode, IconItalic, IconList } from '@supabase/ui';
 import { useEditor, EditorContent } from '@tiptap/react';

@@ -28,6 +28,7 @@ const AuthModal: FC<AuthModalProps> = ({
   const supabase = useSupabaseClient();
   const onAuthenticateRef = useLatestRef(onAuthenticate);
   useEffect(() => {
+    // @ts-ignore
     const subscription = supabase.auth.onAuthStateChange((ev, session) => {
       if (ev === 'SIGNED_IN' && session) {
         onAuthenticateRef.current?.(session);

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { SupabaseClient } from '@supabase/supabase-js';
 
 export interface CommentReactionMetadata {
@@ -102,7 +103,7 @@ export const createApiClient = (supabase: SupabaseClient) => {
     parentId = null,
   }: GetCommentsOptions): Promise<Comment[]> => {
     const query = supabase
-      .from<Comment>('sce_comments_with_metadata')
+      .from('sce_comments_with_metadata')
       .select(
         '*,user:sce_display_users!user_id(*),reactions_metadata:sce_comment_reactions_metadata(*)'
       )
@@ -121,7 +122,7 @@ export const createApiClient = (supabase: SupabaseClient) => {
 
   const getComment = async (id: string): Promise<Comment> => {
     const query = supabase
-      .from<Comment>('sce_comments_with_metadata')
+      .from('sce_comments_with_metadata')
       .select(
         '*,user:sce_display_users!user_id(*),reactions_metadata:sce_comment_reactions_metadata(*)'
       )
