@@ -55,6 +55,7 @@ export const useCommentsContext = () => {
 };
 
 export interface CommentsProviderProps {
+  children: React.ReactNode;
   queryClient?: QueryClient;
   supabaseClient: SupabaseClient;
   onAuthRequested?: () => void;
