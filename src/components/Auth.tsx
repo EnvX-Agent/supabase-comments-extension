@@ -12,8 +12,8 @@ import {
   IconMail,
   IconLock,
   IconUser,
-  Auth as SupabaseAuth,
 } from '@supabase/ui';
+import { Auth as SupabaseAuth, } from '@supabase/auth-ui-react';
 import md5 from 'md5';
 // @ts-ignore
 import { jsx, jsxs } from 'react/jsx-runtime';
