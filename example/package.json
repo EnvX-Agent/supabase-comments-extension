@@ -8,7 +8,7 @@
     "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@supabase/supabase-js": "^1.29.2",
+    "@supabase/supabase-js": "latest",
     "@supabase/ui": "file:../node_modules/@supabase/ui",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

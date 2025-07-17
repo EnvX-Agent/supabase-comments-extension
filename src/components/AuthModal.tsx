@@ -35,7 +35,7 @@ const AuthModal: FC<AuthModalProps> = ({
       }
     });
     return () => {
-      subscription.data?.unsubscribe();
+      subscription.data?.subscription.unsubscribe();
     };
   }, [supabase]);
 

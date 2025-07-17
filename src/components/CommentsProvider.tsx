@@ -106,7 +106,7 @@ const CommentsProvider: FC<CommentsProviderProps> = ({
       queryClient.invalidateQueries();
     });
     return () => {
-      subscription.data?.unsubscribe();
+      subscription.data?.subscription.unsubscribe();
     };
   }, [queryClient, supabaseClient]);
 
